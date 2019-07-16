@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XF.BlocoNotas.Views.MainPage" IsPresented="True">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout>
+                <Button x:Name="btnHome" Text="Home" Clicked="BtnHome_OnClicked" />
+                <Button x:Name="btnCadastrar" Text="Cadastrar" Clicked="BtnCadastrar_OnClicked" />
+                <Button x:Name="btnListar" Text="Listar" Clicked="BtnListar_OnClicked"/>
+                <Button x:Name="btnSobre" Text="Sobre" Clicked="BtnSobre_OnClicked"/>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage Title="Página Principal">
+            <Label x:Name="Teste" Text="Hello World"></Label>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

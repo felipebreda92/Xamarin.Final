@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using XF.BlocoNotas.Models;
 using XF.BlocoNotas.Validations;
 
@@ -36,7 +37,7 @@ namespace XF.BlocoNotas.Services
 
                 var result = _conn.Insert(nota);
                 if (result > 0)
-                    StatusMessage = $"Nota {nota.Titulo} gravada com sucesso.";
+                    StatusMessage = $"Nota: {nota.Titulo} - gravada com sucesso.";
                 else
                     StatusMessage = $"Ocorreu um erro ao gravar a nota {nota.Titulo}.";
             }
@@ -79,6 +80,36 @@ namespace XF.BlocoNotas.Services
                     StatusMessage = $"A nota excluída com sucesso";
                 else
                     StatusMessage = $"Ocorreu um erro ao tentar excluir a nota.";
+            }
+        }
+
+        public List<Nota> FindByTitulo(string titulo)
+        {
+            if (string.IsNullOrWhiteSpace(titulo))
+                throw new Exception("Título inválido");
+
+            using (_conn = new SQLiteConnection(_dbPath))
+            {
+                var notas = new List<Nota>();
+
+                notas = _conn.Table<Nota>().Where(n => n.Titulo.ToLower().Contains(titulo.ToLower())).ToList();
+
+                return notas;
+            }
+        }
+
+        public Nota FindById(int id)
+        {
+            if (id < 0)
+                throw new Exception("Id inválido.");
+
+            using (_conn = new SQLiteConnection(_dbPath))
+            {
+                var nota = new Nota();
+
+                nota = _conn.Table<Nota>().First(n => n.Id == id);
+
+                return nota;
             }
         }
     }

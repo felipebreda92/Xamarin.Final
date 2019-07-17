@@ -24,14 +24,7 @@ namespace XF.BlocoNotas.Validations
                 ErrorMessage = "Dados da nota inválidos";
             }
 
-            if (nota.Id <= 0)
-            {
-                isValid = false;
-                ErrorMessage = "Nota inválida.";
-            }
-
             return isValid;
-
         }
     }
 }

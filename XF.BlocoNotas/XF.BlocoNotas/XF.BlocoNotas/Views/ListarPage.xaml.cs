@@ -20,35 +20,24 @@ namespace XF.BlocoNotas.Views
             ListarNotas();
         }
 
-        private void BtnCadastrar_OnClicked(object sender, EventArgs e)
+        public void ListarNotas()
         {
             try
             {
-                InserirNotas();
-                ListarNotas();
+                var dbNotasServices = new DbNotasServices();
+                ListaNotas.ItemsSource = dbNotasServices.List();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                DisplayAlert("Erro", ex.Message, "Fechar");
+                DisplayAlert("Erro", e.Message, "Fechar");
             }
         }
 
-        public void ListarNotas()
+        private void ListaNotas_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var dbNotasServices = new DbNotasServices();
-            ListaNotas.ItemsSource = dbNotasServices.List();
-        }
-
-        private void InserirNotas()
-        {
-            var nota = new Nota();
-            nota.Titulo = $"Teste - {DateTime.Now}";
-            nota.Dados = "Vai que vai";
-
-            var dbNotasServices = new DbNotasServices();
-            dbNotasServices.Insert(nota);
-
-            DisplayAlert("Retorno da operção", dbNotasServices.StatusMessage, "Fechar");
+            var notaSelecionada = (Nota)ListaNotas.SelectedItem;
+            var page = (MasterDetailPage)Application.Current.MainPage;
+            page.Detail = new CadastrarPage(notaSelecionada);
         }
     }
 }

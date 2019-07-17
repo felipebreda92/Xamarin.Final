@@ -7,11 +7,19 @@
              x:Class="XF.BlocoNotas.Views.CadastrarPage" Title="Cadastro de Notas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Cadastrar Notas"
-                   FontAttributes="Bold"
-                   FontSize="Large"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="txtCodigo" IsEnabled="False" IsVisible="False"/>
+            <Entry x:Name="txtTitulo" Placeholder="Digite o Título"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Favorito:" FontSize="Medium"/>
+                <Switch x:Name="swtFavorito" HorizontalOptions="Start" />
+            </StackLayout>
+
+            <Editor x:Name="txtDados" Placeholder="Nota" VerticalOptions="FillAndExpand" Margin="10"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="btnSalvar" Text="Salvar" Clicked="BtnSalvar_OnClicked"/>
+                <Button x:Name="btnCancelar" Text="Cancelar" Clicked="BtnCancelar_OnClicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

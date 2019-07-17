@@ -7,14 +7,15 @@
              x:Class="XF.BlocoNotas.Views.ListarPage" Title="Notas">
     <ContentPage.Content>
         <StackLayout>
-           <ListView x:Name="ListaNotas" HasUnevenRows="True" SeparatorVisibility="Default" SeparatorColor="Red" Margin="15">
+           <ListView x:Name="ListaNotas" HasUnevenRows="True" 
+                     SeparatorVisibility="Default" SeparatorColor="Red" Margin="15"
+                     ItemSelected="ListaNotas_OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Id, StringFormat='Código: {0}'}"/>
+                                <!--<Label Text="{Binding Id, StringFormat='Código: {0}'}"/>-->
                                 <Label Text="{Binding Titulo, StringFormat='Título: {0}'}"/>
-                                <Label Text="{Binding Dados, StringFormat='Dados: {0}'}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

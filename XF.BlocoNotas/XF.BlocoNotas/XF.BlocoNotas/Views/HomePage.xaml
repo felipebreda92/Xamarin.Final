@@ -6,12 +6,26 @@
              mc:Ignorable="d"
              x:Class="XF.BlocoNotas.Views.HomePage" Title="Home">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Página Home"
-                   FontAttributes="Bold"
-                   FontSize="Large"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Source="inserir.png"  Grid.Row="1" Grid.Column="0"/>
+            <Image Source="localizar.png" Grid.Row="1" Grid.Column="1"/>
+
+            <Label Text="Cadastrar" Grid.Row="2" Grid.Column="0" FontSize="Large" HorizontalOptions="Center"/>
+            <Label Text="Localizar" Grid.Row="2" Grid.Column="1" FontSize="Large" HorizontalOptions="Center"/>
+
+            <Label Text="Felipe Tadeu Guerra Breda - 332226" Grid.Row="3" Grid.Column="0" FontSize="Medium" HorizontalOptions="Center"/>
+            <Label Text="Luiz Gustavo Palhares da silva - 332647" Grid.Row="3" Grid.Column="1" FontSize="Medium" HorizontalOptions="Center"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

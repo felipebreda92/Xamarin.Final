@@ -23,6 +23,7 @@ namespace XF.BlocoNotas.Views
         {
             InitializeComponent();
             btnSalvar.Text = "Alterar";
+            btnExcluir.IsVisible = true;
             txtCodigo.IsVisible = true;
 
             txtTitulo.Text = nota.Titulo;
@@ -56,10 +57,8 @@ namespace XF.BlocoNotas.Views
 
                 DisplayAlert("Retorno da operção", dbNotasServices.StatusMessage, "OK");
 
-
                 var page = (MasterDetailPage)Application.Current.MainPage;
-                page.Detail = new ListarPage();
-
+                page.Detail = new NavigationPage(new ListarPage());
             }
             catch (Exception ex)
             {
@@ -71,7 +70,24 @@ namespace XF.BlocoNotas.Views
         private void BtnCancelar_OnClicked(object sender, EventArgs e)
         {
             var page = (MasterDetailPage)Application.Current.MainPage;
-            page.Detail = new HomePage();
+            page.Detail = new NavigationPage(new HomePage());
+        }
+
+        private async void BtnExcluir_OnClicked(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert("Excluir", "Deseja excluir esta nota?", "Sim", "Não");
+
+            if (result)
+            {
+                var dbNotasServices = new DbNotasServices();
+                var id = int.Parse(txtCodigo.Text);
+                dbNotasServices.Delete(id);
+                await DisplayAlert("Retorno da operção", dbNotasServices.StatusMessage, "OK");
+
+                var page = (MasterDetailPage)Application.Current.MainPage;
+                page.Detail = new NavigationPage(new ListarPage());
+            }
+
         }
     }
 }

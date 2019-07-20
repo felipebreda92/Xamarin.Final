@@ -8,11 +8,22 @@
 
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
+
             <StackLayout>
-                <Button x:Name="btnHome" Text="Home" Clicked="BtnHome_OnClicked" />
-                <Button x:Name="btnCadastrar" Text="Cadastrar" Clicked="BtnCadastrar_OnClicked" />
-                <Button x:Name="btnListar" Text="Listar" Clicked="BtnListar_OnClicked"/>
-                <Button x:Name="btnSobre" Text="Sobre" Clicked="BtnSobre_OnClicked"/>
+                <Image Source="nota2.png" HorizontalOptions="Center"/>
+                <Label x:Name="lblBlocoNotas" Text="Notas" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,50"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="info2.png"/>
+                    <Button x:Name="btnHome" Text="Home" Clicked="BtnHome_OnClicked" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="inserir.png"/>
+                    <Button x:Name="btnCadastrar" Text="Cadastrar" Clicked="BtnCadastrar_OnClicked" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="localizar.png"/>
+                    <Button x:Name="btnListar" Text="Listar" Clicked="BtnListar_OnClicked" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

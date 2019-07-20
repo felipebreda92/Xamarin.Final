@@ -15,25 +15,19 @@ namespace XF.BlocoNotas.Views
 
         private void BtnHome_OnClicked(object sender, EventArgs e)
         {
-            Detail = new HomePage();
+            Detail = new NavigationPage(new HomePage());
             IsPresented = false;
         }
 
         private void BtnCadastrar_OnClicked(object sender, EventArgs e)
         {
-            Detail = new CadastrarPage();
+            Detail = new NavigationPage(new CadastrarPage());
             IsPresented = false;
         }
 
         private void BtnListar_OnClicked(object sender, EventArgs e)
         {
-            Detail = new ListarPage();
-            IsPresented = false;
-        }
-
-        private void BtnSobre_OnClicked(object sender, EventArgs e)
-        {
-            Detail = new SobrePage();
+            Detail = new NavigationPage(new ListarPage());
             IsPresented = false;
         }
     }

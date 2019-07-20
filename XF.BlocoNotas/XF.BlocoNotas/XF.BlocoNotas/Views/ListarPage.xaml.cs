@@ -37,7 +37,7 @@ namespace XF.BlocoNotas.Views
         {
             var notaSelecionada = (Nota)ListaNotas.SelectedItem;
             var page = (MasterDetailPage)Application.Current.MainPage;
-            page.Detail = new CadastrarPage(notaSelecionada);
+            page.Detail = new NavigationPage(new CadastrarPage(notaSelecionada));
         }
     }
 }

@@ -9,23 +9,49 @@
         <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="100" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="inserir.png"  Grid.Row="1" Grid.Column="0"/>
-            <Image Source="localizar.png" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="Felipe Breda - 332226" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+            <Label Text="Luiz Gustavo - 332647" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+            <Label Text="Pedro Bonatti - 332203" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+            <Label Text="Rodrigo Alencar - 332098" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
 
-            <Label Text="Cadastrar" Grid.Row="2" Grid.Column="0" FontSize="Large" HorizontalOptions="Center"/>
-            <Label Text="Localizar" Grid.Row="2" Grid.Column="1" FontSize="Large" HorizontalOptions="Center"/>
+            <Image x:Name="imgInserir"  Source="inserir.png"  Grid.Row="5" Grid.Column="0" VerticalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_OnTapped"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
 
-            <Label Text="Felipe Tadeu Guerra Breda - 332226" Grid.Row="3" Grid.Column="0" FontSize="Medium" HorizontalOptions="Center"/>
-            <Label Text="Luiz Gustavo Palhares da silva - 332647" Grid.Row="3" Grid.Column="1" FontSize="Medium" HorizontalOptions="Center"/>
+            <Image x:Name="imgLocalizar" Source="localizar.png" Grid.Row="5" Grid.Column="1" VerticalOptions="End">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="TapGestureRecognizer_OnTapped_1"
+                        NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
 
+            <Label Text="Cadastrar" Grid.Row="6" Grid.Column="0" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End"/>
+            <Label Text="Localizar" Grid.Row="6" Grid.Column="1" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

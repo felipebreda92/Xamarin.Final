@@ -16,5 +16,19 @@ namespace XF.BlocoNotas.Views
         {
             InitializeComponent();
         }
+
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            var page = (MasterDetailPage)Application.Current.MainPage;
+            page.Detail = new NavigationPage(new CadastrarPage());
+            page.IsPresented = false;
+        }
+
+        private void TapGestureRecognizer_OnTapped_1(object sender, EventArgs e)
+        {
+            var page = (MasterDetailPage)Application.Current.MainPage;
+            page.Detail = new NavigationPage(new ListarPage());
+            page.IsPresented = false;
+        }
     }
 }
